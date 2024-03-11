@@ -7,11 +7,11 @@ import java.util.Optional;
 @Service
 public class StudentService {
     @Autowired
-    StudentRepository studentRepository;
-    public void setIsWorking(Long id, boolean isWorking){
-        Optional<Student> student=studentRepository.findById(id);
-        if (!student.isPresent()) return;
+    private StudentRepository studentRepository;
+    public Student setStudentActivationStatus(Long id, boolean isWorking){
+        Optional<Student> student = studentRepository.findById(id);
+        if(!student.isPresent()) return null;
         student.get().setWorking(isWorking);
-        studentRepository.save(student.get());
+        return studentRepository.save(student.get());
     }
 }

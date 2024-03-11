@@ -40,7 +40,7 @@ public class StudentController {
     }
     @PutMapping("/{id}/working")
     public void setIsWorking(@PathVariable Long id, @PathVariable boolean working){
-        studentService.setIsWorking(id,working);
+        studentService.setStudentActivationStatus(id,working);
     }
     @DeleteMapping("/delete/{id}")
     public void deleteStudent(@PathVariable Long id){
